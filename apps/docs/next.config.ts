@@ -1,12 +1,7 @@
-module.exports = {
-  basePath: "/docs", // Forces all pages to be inside /docs
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/docs/quickstart/onboarding/onboarding-api", // Change this if needed
-        permanent: true,
-      },
-    ];
-  },
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  basePath: '/docs', // Ensures all routes are under /docs
+  reactStrictMode: true,
 };
+
+export default nextConfig;
