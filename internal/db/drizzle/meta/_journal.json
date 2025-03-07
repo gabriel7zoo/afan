@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1741076709095,
+      "tag": "0000_dear_blue_shield",
+      "breakpoints": true
+    }
+  ]
+}
