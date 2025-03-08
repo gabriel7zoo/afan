@@ -19,7 +19,7 @@ export function YoutubeEmbed({ className }: { className?: string }) {
         <div className="relative w-full h-full rounded-[inherit]">
           <ImageWithBlur
             className="rounded-[28px]"
-            src="https://i.imghippo.com/files/NGlA1344HAI.png"
+            src="/apps/www/images/Screenshot_20250308_140811_YouTube.jpg"
             alt="Thumbnail for 'Arianna by Domy' YouTube video"
             quality={95}
             priority
