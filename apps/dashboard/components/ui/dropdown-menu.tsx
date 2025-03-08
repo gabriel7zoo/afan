@@ -1,7 +1,6 @@
 "use client";
 
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
-import { ChevronRight } from "lucide-react";
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
@@ -10,14 +9,14 @@ const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
 const DropdownMenuContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
->(({ className, sideOffset = 4, ...props }, ref) => (
+>(({ className, sideOffset = 6, ...props }, ref) => (
   <DropdownMenuPrimitive.Portal>
     <DropdownMenuPrimitive.Content
       ref={ref}
       sideOffset={sideOffset}
       className={cn(
-        "z-50 min-w-[10rem] overflow-hidden rounded-lg border bg-white p-2 shadow-lg",
-        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in",
+        "z-50 min-w-[12rem] overflow-hidden rounded-lg border bg-white shadow-xl",
+        "data-[state=open]:animate-in data-[state=closed]:animate-out",
         className
       )}
       {...props}
@@ -33,8 +32,8 @@ const DropdownMenuItem = React.forwardRef<
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={cn(
-      "flex cursor-pointer select-none items-center rounded-md px-3 py-2 text-sm transition-colors hover:bg-gray-100",
-      "focus:bg-gray-200 focus:outline-none",
+      "flex cursor-pointer select-none items-center rounded-md px-4 py-2 text-sm font-medium transition-colors",
+      "hover:bg-gray-100 focus:bg-gray-200 focus:outline-none",
       className
     )}
     onClick={onClick}
@@ -46,8 +45,12 @@ DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName;
 const Menu = () => {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="px-4 py-2 text-sm font-medium bg-gray-900 text-white rounded-md">
-        Menu
+      <DropdownMenuTrigger className="focus:outline-none">
+        <img
+          src="https://i.imghippo.com/files/NGlA1344HAI.png"
+          alt="Menu"
+          className="w-10 h-10 cursor-pointer rounded-full"
+        />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem onClick={() => (window.location.href = "https://guidance.extrinsicmusicgroup.com")}>
