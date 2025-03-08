@@ -24,27 +24,13 @@ export function YoutubeEmbed({ className }: { className?: string }) {
       <button type="button" className="relative w-full h-full" onClick={() => setToggler(!toggler)}>
         <div className="relative w-full h-full rounded-[inherit]">
           <ImageWithBlur
-            aria-hidden
             className="rounded-[28px]"
             src={thumbnailUrl} // Updated with extracted thumbnail
-            alt=""
+            alt="YouTube Video Thumbnail"
             quality={95}
             priority
-            fill
-          />
-          <ImageWithBlur
-            className="rounded-[28px]"
-            src="/images/hero-bg-light-min.svg"
-            alt=""
-            priority
-            fill
-          />
-          <ImageWithBlur
-            className="rounded-[28px]"
-            src={thumbnailUrl} // Updated with extracted thumbnail
-            alt="Thumbnail for 'Arianna Domy' YouTube video"
-            priority
-            fill
+            width={1280}  // Explicit width
+            height={720}   // Explicit height
           />
         </div>
 
