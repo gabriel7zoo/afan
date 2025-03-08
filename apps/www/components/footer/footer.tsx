@@ -1,8 +1,35 @@
 "use client";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { UnkeyLogo } from "./footer-svgs";
-import { Wordmark } from "./wordmark";
+import Image from "next/image"; // Import Image for logos
+
+// Extrinsic Music Group Logo
+const ExtrinsicLogo = () => (
+  <Image
+    src="https://i.imghippo.com/files/NGlA1344HAI.png"
+    alt="Extrinsic Music Group Logo"
+    width={150}
+    height={50}
+  />
+);
+
+// Proudly European Icon (SVG)
+const EuropeanIcon = () => (
+  <div className="flex flex-col items-center mt-4">
+    <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" rx="15" fill="#003399" />
+      <g fill="#FFD700">
+        {[...Array(12)].map((_, i) => {
+          const angle = (i * 30) * (Math.PI / 180);
+          const x = 50 + 30 * Math.cos(angle);
+          const y = 50 + 30 * Math.sin(angle);
+          return <circle key={i} cx={x} cy={y} r="4" />;
+        })}
+      </g>
+    </svg>
+    <span className="text-white mt-2 text-sm font-medium">Proudly European</span>
+  </div>
+);
 
 type NavLink = {
   title: string;
@@ -28,7 +55,7 @@ const navigation = [
         external: true,
       },
       {
-        title: "Glossary", 
+        title: "Glossary",
         href: "/glossary",
       },
     ],
@@ -36,10 +63,10 @@ const navigation = [
   {
     title: "Connect",
     links: [
-      { title: "X (Twitter)", href: "https://x.com/unkeydev", external: true },
+      { title: "X (Twitter)", href: "https://x.com/extrinsicmusicgroup", external: true },
       {
         title: "Book a Call",
-        href: "https://cal.com/team/unkey/user-interview?utm_source=banner&utm_campaign=oss",
+        href: "https://cal.com/team/extrinsic/user-interview?utm_source=banner&utm_campaign=oss",
         external: true,
       },
     ],
@@ -86,22 +113,21 @@ export function Footer() {
     <div className="border-t border-white/20 blog-footer-radial-gradient">
       <footer className="container relative grid grid-cols-2 gap-8 pt-8 mx-auto overflow-hidden lg:gap-16 sm:grid-cols-3 xl:grid-cols-5 sm:pt-12 md:pt-16 lg:pt-24 xl:pt-32">
         <div className="flex flex-col items-center col-span-2 sm:items-start sm:col-span-3 xl:col-span-2">
-          <UnkeyLogo />
+          <ExtrinsicLogo />
           <div className="mt-8 text-sm font-normal leading-6 text-white/60">
             Build better APIs faster.
           </div>
           <div className="text-sm font-normal leading-6 text-white/40">
-            Unkeyed, Inc. {new Date().getUTCFullYear()}
+            Extrinsic Music Group, Inc. {new Date().getUTCFullYear()}
           </div>
+          <EuropeanIcon /> {/* Adds Proudly European icon */}
         </div>
 
         {navigation.map(({ title, links }) => (
           <Column key={title} title={title} links={links} className="col-span-1" />
         ))}
       </footer>
-      <div className="container mt-8 h-[100px]">
-        <Wordmark className="flex w-full" />
-      </div>
+      <div className="container mt-8 h-[100px]"></div>
     </div>
   );
-}
+        }
