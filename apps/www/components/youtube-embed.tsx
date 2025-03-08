@@ -2,7 +2,6 @@
 import { BorderBeam } from "@/components/border-beam";
 import { cn } from "@/lib/utils";
 import FsLightbox from "fslightbox-react";
-// import Image from "next/image";
 import { useState } from "react";
 import { ImageWithBlur } from "./image-with-blur";
 
@@ -19,25 +18,10 @@ export function YoutubeEmbed({ className }: { className?: string }) {
       <button type="button" className="relative w-full h-full" onClick={() => setToggler(!toggler)}>
         <div className="relative w-full h-full rounded-[inherit]">
           <ImageWithBlur
-            aria-hidden
             className="rounded-[28px]"
-            src="/images/hero-james.jpg"
-            alt=""
+            src="https://i.imghippo.com/files/NGlA1344HAI.png"
+            alt="Thumbnail for 'Arianna by Domy' YouTube video"
             quality={95}
-            priority
-            fill
-          />
-          <ImageWithBlur
-            className="rounded-[28px]"
-            src="/images/hero-bg-light-min.svg"
-            alt=""
-            priority
-            fill
-          />
-          <ImageWithBlur
-            className="rounded-[28px]"
-            src="/images/hero-bg-shape-min.svg"
-            alt="Thumbnail for 'Unkey in 5 Minutes' YouTube video"
             priority
             fill
           />
@@ -64,8 +48,8 @@ export function YoutubeEmbed({ className }: { className?: string }) {
             <iframe
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/-gvpo4SWgG8?si=1kmwJVtQ5IaZrxD7&autoplay=1"
-              title="YouTube video player"
+              src="https://www.youtube.com/embed/7dzrKqm3Z2o?si=6V1y3ilhQw4q7v8f&autoplay=1"
+              title="Arianna by Domy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             />
