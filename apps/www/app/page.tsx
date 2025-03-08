@@ -8,7 +8,6 @@ import { HashedKeysBento } from "@/components/hashed-keys-bento";
 import { ImageWithBlur } from "@/components/image-with-blur";
 import { IpWhitelistingBento } from "@/components/ip-whitelisting-bento";
 import { LatencyBento } from "@/components/latency-bento";
-import { OpenSource } from "@/components/open-source";
 import { RateLimitsBento } from "@/components/rate-limits-bento";
 import { Section, SectionTitle } from "@/components/section";
 import { FeatureGridChip } from "@/components/svg/feature-grid-chip";
