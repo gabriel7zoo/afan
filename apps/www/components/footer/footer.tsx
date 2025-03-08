@@ -1,100 +1,98 @@
-import { useEffect } from 'react';
-import { twMerge } from 'tailwind-merge';
-import { Button } from './Button';
-import { sections } from './Navigation';
-import Link, { LinkProps } from 'next/link';
-import { PropsWithChildren } from 'react';
-import { BrandingMenu } from '../Layout/Public/BrandingMenu';
+"use client";
 
-const Footer = ({ wide }: { wide?: boolean }) => {
+import Link from "next/link";
+import { twMerge } from "tailwind-merge";
+import { UnkeyLogo } from "@/components/footer/footer-svgs";
+import { Wordmark } from "@/components/footer/wordmark";
+
+type NavLink = {
+  title: string;
+  href: string;
+  external?: boolean;
+};
+
+const navigation = [
+  {
+    title: "Company",
+    links: [
+      { title: "About", href: "/about" },
+      { title: "Blog", href: "/blog" },
+      { title: "Changelog", href: "/changelog" },
+      { title: "Careers", href: "/careers" },
+      { title: "Docs", href: "/docs", external: true },
+      { title: "Glossary", href: "/glossary" },
+    ],
+  },
+  {
+    title: "Connect",
+    links: [
+      { title: "X (Twitter)", href: "https://x.com/unkeydev", external: true },
+      { title: "OSS Friends", href: "/oss-friends" },
+      {
+        title: "Book a Call",
+        href: "https://cal.com/team/unkey/user-interview?utm_source=banner&utm_campaign=oss",
+        external: true,
+      },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { title: "Terms of Service", href: "/policies/terms" },
+      { title: "Privacy Policy", href: "/policies/privacy" },
+    ],
+  },
+] satisfies Array<{ title: string; links: Array<NavLink> }>;
+
+const Column: React.FC<{ title: string; links: Array<NavLink>; className?: string }> = ({
+  title,
+  links,
+  className,
+}) => {
   return (
-    <div className={twMerge('flex w-full flex-col items-center space-y-24 px-4 py-16')}>
-      <div
-        className={twMerge(
-          'dark:md:bg-polar-900 md:rounded-4xl flex w-full flex-col gap-x-32 gap-y-24 md:justify-between md:gap-y-12 md:bg-gray-50 md:p-16 lg:flex-row',
-          wide ? 'max-w-7xl' : 'max-w-[970px]',
-        )}
-      >
-        <div className="flex flex-grow flex-col gap-y-6">
-          <span className="ml-2 text-black md:ml-0 dark:text-white">
-            <BrandingMenu logoVariant="logotype" size={120} />
-          </span>
-          <span className="dark:text-polar-500 w-full flex-grow text-gray-500">
-            &copy; Extrinsic Music Group. {new Date().getFullYear()}
-          </span>
-        </div>
-        
-        {/* Navigation Links */}
-        <div className="flex flex-col gap-x-12 gap-y-12 text-sm md:flex-row [&>div]:w-36">
-          {/* Platform */}
-          <div className="flex flex-col gap-y-4">
-            <h3 className="text-base dark:text-white">Platform</h3>
-            <div className="flex flex-col gap-y-2">
-              <FooterLink href="https://apply.extrinsicmusicgroup.com/">Apply</FooterLink>
-              <FooterLink href="https://affiliates.extrinsicmusicgroup.com/">Affiliates</FooterLink>
-              <FooterLink href="https://artists.extrinsicmusicgroup.com/">Artists</FooterLink>
-              <FooterLink href="https://portal.extrinsicmusicgroup.com">Customer Portal</FooterLink>
-            </div>
-          </div>
-
-          {/* Company */}
-          <div className="flex flex-col gap-y-4">
-            <h3 className="text-base dark:text-white">Company</h3>
-            <div className="flex flex-col gap-y-2">
-              <FooterLink href="/about">About</FooterLink>
-              <FooterLink href="/blog">Blog</FooterLink>
-              <FooterLink href="/changelog">Changelog</FooterLink>
-              <FooterLink href="/careers">Careers</FooterLink>
-              <FooterLink href="/docs">Docs</FooterLink>
-              <FooterLink href="/glossary">Glossary</FooterLink>
-              <FooterLink href="https://help.extrinsicmusicgroup.com/docs/paper/whitepaper">
-                White Paper
-              </FooterLink>
-              <FooterLink href="https://extrinsicmusicgroup.com/assets/brand/emg_brand.zip">
-                Brand Assets
-              </FooterLink>
-              <FooterLink href="https://help.extrinsicmusicgroup.com/docs/tos/tos">
-                Terms of Service
-              </FooterLink>
-              <FooterLink href="https://help.extrinsicmusicgroup.com/docs/tos/privacy">
-                Privacy Policy
-              </FooterLink>
-            </div>
-          </div>
-
-          {/* Community */}
-          <div className="flex flex-col gap-y-4">
-            <h3 className="text-lg dark:text-white">Community</h3>
-            <div className="flex flex-col gap-y-2">
-              <FooterLink href="https://youtube.com/extrinsicmusicgroup">YouTube</FooterLink>
-              <FooterLink href="https://Instagram.com/extrinsicmusicgroup">Instagram</FooterLink>
-              <FooterLink href="https://x.com/Extrinsicmusica">X / Twitter</FooterLink>
-            </div>
-          </div>
-
-          {/* Support */}
-          <div className="flex flex-col gap-y-4">
-            <h3 className="text-base dark:text-white">Support</h3>
-            <div className="flex flex-col gap-y-2">
-              <FooterLink href="https://help.extrinsicmusicgroup.com/">Docs</FooterLink>
-              <FooterLink href="mailto:support@extrinsicmusicgroup.com">Contact</FooterLink>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className={twMerge("flex flex-col gap-8 text-left", className)}>
+      <span className="w-full text-sm font-medium tracking-wider text-white font-display">
+        {title}
+      </span>
+      <ul className="flex flex-col gap-4 md:gap-6">
+        {links.map((link) => (
+          <li key={link.href}>
+            <Link
+              href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
+              className="text-sm font-normal transition hover:text-white/40 text-white/70"
+            >
+              {link.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default Footer;
-
-const FooterLink = (props: PropsWithChildren<LinkProps>) => {
+export function Footer() {
   return (
-    <Link
-      className="dark:text-polar-500 dark:hover:text-polar-50 flex flex-row items-center gap-x-1 text-gray-500 transition-colors hover:text-gray-500"
-      {...props}
-    >
-      {props.children}
-    </Link>
+    <div className="border-t border-white/20 blog-footer-radial-gradient">
+      <footer className="container relative grid grid-cols-2 gap-8 pt-8 mx-auto overflow-hidden lg:gap-16 sm:grid-cols-3 xl:grid-cols-5 sm:pt-12 md:pt-16 lg:pt-24 xl:pt-32">
+        <div className="flex flex-col items-center col-span-2 sm:items-start sm:col-span-3 xl:col-span-2">
+          <UnkeyLogo />
+          <div className="mt-8 text-sm font-normal leading-6 text-white/60">
+            Build better APIs faster.
+          </div>
+          <div className="text-sm font-normal leading-6 text-white/40">
+            Unkeyed, Inc. {new Date().getUTCFullYear()}
+          </div>
+        </div>
+
+        {navigation.map(({ title, links }) => (
+          <Column key={title} title={title} links={links} className="col-span-1 " />
+        ))}
+      </footer>
+      <div className="container mt-8 h-[100px]">
+        <Wordmark className="flex w-full" />
+      </div>
+    </div>
   );
-};
+}
