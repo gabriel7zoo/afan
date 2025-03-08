@@ -2,7 +2,6 @@ import { Hero } from "@/app/hero";
 import { TopLeftShiningLight, TopRightShiningLight } from "@/components/svg/hero";
 import Image from "next/image";
 import Link from "next/link";
-import mainboard from "../images/mainboard.svg";
 import { DesktopLogoCloud, MobileLogoCloud } from "./(components)/logo-cloud-content";
 import { PrimaryButton, SecondaryButton } from "@/components/button";
 import { ChevronRight, LogIn } from "lucide-react";
@@ -35,21 +34,14 @@ export const metadata = {
 export default function Landing() {
   return (
     <>
-      {/* Updated image at top right */}
-      <Image
-        src="https://i.imghippo.com/files/NGlA1344HAI.png"
-        alt="Extrinsic Music Group Logo"
-        className="absolute top-0 right-0 w-24 h-24"
-        priority
-      />
-
       <TopRightShiningLight />
       <TopLeftShiningLight />
       <div className="relative w-full pt-6 overflow-hidden">
         <div className="container relative mx-auto">
+          {/* Replaced circuit SVG with the new image */}
           <Image
-            src={mainboard}
-            alt="Animated SVG showing computer circuits lighting up"
+            src="https://i.imghippo.com/files/NGlA1344HAI.png"
+            alt="Extrinsic Music Group Visual"
             className="absolute inset-x-0 flex xl:hidden -z-10 scale-[2]"
             priority
           />
