@@ -5,16 +5,16 @@ import { cn } from "@/lib/utils";
 
 const logos = [
   {
-    name: "Fireworks",
-    url: "/images/logo-cloud/fireworks-ai.svg",
+    name: "EMG",
+    url: "https://i.imghippo.com/files/NGlA1344HAI.png",
   },
   {
-    name: "cal.com",
-    url: "/images/logo-cloud/calcom.svg",
+    name: "EMG",
+    url: "https://i.imghippo.com/files/NGlA1344HAI.png",
   },
   {
-    name: "Mintlify",
-    url: "/images/logo-cloud/mintlify.svg",
+    name: "EMG",
+    url: "https://i.imghippo.com/files/NGlA1344HAI.png",
   },
 ];
 
