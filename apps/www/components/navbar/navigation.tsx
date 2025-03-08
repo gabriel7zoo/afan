@@ -31,10 +31,11 @@ export function Navigation() {
   return (
     <motion.nav
       style={{
-        backgroundColor: `rgba(0, 0, 0, ${scrollPercent})`,
-        borderColor: `rgba(255, 255, 255, ${Math.min(scrollPercent / 5, 0.15)})`,
+        backgroundColor: `rgba(0, 0, 0, ${scrollPercent * 0.8})`,
+        borderColor: `rgba(255, 255, 255, ${Math.min(scrollPercent / 5, 0.1)})`,
+        backdropFilter: "blur(10px)",
       }}
-      className="fixed z-[100] top-0 border-b-[.75px] border-white/10 w-full py-3"
+      className="fixed z-[100] top-0 border-b-[.5px] border-white/10 w-full py-3 transition-all"
     >
       <div className="container flex items-center justify-between">
         <div className="flex items-center justify-between w-full sm:w-auto sm:gap-12 lg:gap-20">
@@ -46,7 +47,11 @@ export function Navigation() {
         </div>
         <div className="hidden sm:flex">
           <Link href="https://extrinsicmusicgroup.com">
-            <PrimaryButton label="EMG" IconRight={ChevronRight} className="h-8 text-sm" />
+            <PrimaryButton
+              label="EMG"
+              IconRight={ChevronRight}
+              className="h-9 px-5 text-sm rounded-full bg-white/10 hover:bg-white/20 transition-all"
+            />
           </Link>
         </div>
       </div>
@@ -63,18 +68,18 @@ function MobileLinks({ className }: { className?: string }) {
           <button
             type="button"
             onClick={() => setIsOpen(true)}
-            className="flex items-center justify-end h-8 gap-2 pl-3 py-2 text-sm text-white/60 hover:text-white/80"
+            className="flex items-center justify-end h-9 px-4 text-sm text-white/70 hover:text-white/90 rounded-full bg-white/10 hover:bg-white/20 transition-all"
           >
             Menu
-            <ChevronDown className="w-4 h-4 relative top-[1px]" />
+            <ChevronDown className="w-4 h-4 ml-2" />
           </button>
         </DrawerTrigger>
-        <DrawerContent className="bg-black/90 z-[110]">
+        <DrawerContent className="bg-black/80 backdrop-blur-lg rounded-lg p-4 z-[110]">
           <DrawerHeader className="flex justify-center">
             <Logo />
           </DrawerHeader>
           <div className="relative w-full mx-auto antialiased z-[110]">
-            <ul className="flex flex-col px-8 divide-y divide-white/25">
+            <ul className="flex flex-col px-8 divide-y divide-white/15">
               <li>
                 <MobileNavLink onClick={() => setIsOpen(false)} href="/" label="Home" />
               </li>
@@ -98,7 +103,7 @@ function MobileLinks({ className }: { className?: string }) {
               type="button"
               onClick={() => setIsOpen(false)}
               className={cn(
-                "px-4 text-white/75 hover:text-white/80 h-10 border rounded-lg bg-black",
+                "px-5 py-2 text-white/80 hover:text-white transition-all bg-white/10 hover:bg-white/20 rounded-full",
                 className,
               )}
             >
@@ -132,6 +137,6 @@ const Logo: React.FC<{ className?: string }> = ({ className }) => (
   <img
     src="https://i.imghippo.com/files/NGlA1344HAI.png"
     alt="Logo"
-    className={cn("h-10 w-auto", className)}
+    className={cn("h-10 w-auto rounded-full", className)}
   />
 );
