@@ -2,12 +2,17 @@
 import { BorderBeam } from "@/components/border-beam";
 import { cn } from "@/lib/utils";
 import FsLightbox from "fslightbox-react";
-// import Image from "next/image";
 import { useState } from "react";
 import { ImageWithBlur } from "./image-with-blur";
 
 export function YoutubeEmbed({ className }: { className?: string }) {
   const [toggler, setToggler] = useState(false);
+
+  // Extract video ID from the embed URL
+  const videoId = "7dzrKqm3Z2o"; // Replace with dynamic ID if needed
+
+  // Generate the thumbnail URL dynamically
+  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
   return (
     <div className={cn("w-full h-full rounded-[38px] bg-white/5 group", className)}>
@@ -21,7 +26,7 @@ export function YoutubeEmbed({ className }: { className?: string }) {
           <ImageWithBlur
             aria-hidden
             className="rounded-[28px]"
-            src="/images/Screenshot_20250308_140811_YouTube.jpg"
+            src={thumbnailUrl} // Updated with extracted thumbnail
             alt=""
             quality={95}
             priority
@@ -36,7 +41,7 @@ export function YoutubeEmbed({ className }: { className?: string }) {
           />
           <ImageWithBlur
             className="rounded-[28px]"
-            src="/images/Screenshot_20250308_140811_YouTube.jpg"
+            src={thumbnailUrl} // Updated with extracted thumbnail
             alt="Thumbnail for 'Arianna Domy' YouTube video"
             priority
             fill
@@ -64,7 +69,7 @@ export function YoutubeEmbed({ className }: { className?: string }) {
             <iframe
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/7dzrKqm3Z2o?si=6V1y3ilhQw4q7v8f&autoplay=1"
+              src={`https://www.youtube.com/embed/${videoId}?autoplay=1`} // Dynamically inserted video ID
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
