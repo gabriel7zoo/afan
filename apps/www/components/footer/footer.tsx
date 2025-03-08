@@ -7,7 +7,6 @@ import Image from "next/image"; // Import Image for logos
 const ExtrinsicLogo = () => (
   <svg width="150" height="50" viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
     <text x="10" y="35" fontSize="24" fill="white" fontFamily="Arial, sans-serif">
-      Extrinsic Music Group
     </text>
   </svg>
 );
@@ -114,7 +113,7 @@ export function Footer() {
         <div className="flex flex-col items-center col-span-2 sm:items-start sm:col-span-3 xl:col-span-2">
           <ExtrinsicLogo />
           <div className="mt-8 text-sm font-normal leading-6 text-white/60">
-            Build better APIs faster.
+            NextGen Label.
           </div>
           <div className="text-sm font-normal leading-6 text-white/40">
             Extrinsic Music Group, Inc. {new Date().getUTCFullYear()}
