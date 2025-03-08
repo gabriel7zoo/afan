@@ -20,7 +20,6 @@ import Image from "next/image";
 import Link from "next/link";
 import mainboard from "../images/mainboard.svg";
 import { DesktopLogoCloud, MobileLogoCloud } from "./(components)/logo-cloud-content";
-import { CodeExamples } from "./code-examples";
 
 export const metadata = {
   title: "Unkey",
@@ -73,9 +72,6 @@ export default async function Landing() {
           <Section className="mt-16 md:mt-32">
             <DesktopLogoCloud />
             <MobileLogoCloud />
-          </Section>
-          <Section className="mt-16 md:mt-18">
-            <CodeExamples />
           </Section>
           <Section className="mt-16 md:mt-18">
             <OpenSource />
