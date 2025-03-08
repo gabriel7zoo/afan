@@ -3,14 +3,13 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image"; // Import Image for logos
 
-// Extrinsic Music Group Logo
+// Extrinsic Music Group Logo (Replace with actual hosted logo if needed)
 const ExtrinsicLogo = () => (
-  <Image
-    src="https://i.imghippo.com/files/NGlA1344HAI.png"
-    alt="Extrinsic Music Group Logo"
-    width={150}
-    height={50}
-  />
+  <svg width="150" height="50" viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
+    <text x="10" y="35" fontSize="24" fill="white" fontFamily="Arial, sans-serif">
+      Extrinsic Music Group
+    </text>
+  </svg>
 );
 
 // Proudly European Icon (SVG)
@@ -130,4 +129,4 @@ export function Footer() {
       <div className="container mt-8 h-[100px]"></div>
     </div>
   );
-        }
+}
