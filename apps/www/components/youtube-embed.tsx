@@ -21,7 +21,7 @@ export function YoutubeEmbed({ className }: { className?: string }) {
           <ImageWithBlur
             aria-hidden
             className="rounded-[28px]"
-            src="/images/hero-james.jpg"
+            src="/images/Screenshot_20250308_140811_YouTube.jpg"
             alt=""
             quality={95}
             priority
