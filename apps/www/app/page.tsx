@@ -8,33 +8,41 @@ import { PrimaryButton, SecondaryButton } from "@/components/button";
 import { ChevronRight, LogIn } from "lucide-react";
 
 export const metadata = {
-  title: "Unkey",
-  description: "Build better APIs faster",
+  title: "Extrinsic Music Group Docs",
+  description: "Extrinsic Music Group guidance.",
   openGraph: {
-    title: "Unkey",
-    description: "Build better APIs faster",
-    url: "https://unkey.com/",
-    siteName: "unkey.com",
+    title: "Extrinsic Music Group Docs",
+    description: "Extrinsic Music Group guidance.",
+    url: "https://guide.extrinsicmusicgroup.com",
+    siteName: "Extrinsic Music Group Docs",
     images: [
       {
-        url: "https://unkey.com/og.png",
+        url: "https://i.imghippo.com/files/NGlA1344HAI.png",
         width: 1200,
         height: 675,
       },
     ],
   },
   twitter: {
-    title: "Unkey",
+    title: "Extrinsic Music Group Docs",
     card: "summary_large_image",
   },
   icons: {
-    shortcut: "/unkey.png",
+    shortcut: "/extrinsic-music-group.png",
   },
 };
 
 export default function Landing() {
   return (
     <>
+      {/* Updated image at top right */}
+      <Image
+        src="https://i.imghippo.com/files/NGlA1344HAI.png"
+        alt="Extrinsic Music Group Logo"
+        className="absolute top-0 right-0 w-24 h-24"
+        priority
+      />
+
       <TopRightShiningLight />
       <TopLeftShiningLight />
       <div className="relative w-full pt-6 overflow-hidden">
@@ -61,7 +69,7 @@ export default function Landing() {
           {/* Call-to-Action Buttons */}
           <section className="mt-16 md:mt-32 text-center">
             <div className="flex justify-center space-x-6">
-              <Link href="https://app.unkey.com" className="group">
+              <Link href="https://guide.extrinsicmusicgroup.com" className="group">
                 <PrimaryButton shiny IconLeft={LogIn} label="Get Started" className="h-10" />
               </Link>
               <Link href="/docs">
@@ -72,7 +80,7 @@ export default function Landing() {
 
           {/* Footer */}
           <footer className="mt-16 md:mt-32 text-center text-gray-500">
-            <p>© {new Date().getFullYear()} Unkey. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Extrinsic Music Group Docs. All rights reserved.</p>
           </footer>
         </div>
       </div>
