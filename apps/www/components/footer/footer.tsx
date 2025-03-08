@@ -1,9 +1,8 @@
 "use client";
-
+import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { twMerge } from "tailwind-merge";
-import { UnkeyLogo } from "@/components/footer/footer-svgs";
-import { Wordmark } from "@/components/footer/wordmark";
+import { UnkeyLogo } from "./footer-svgs";
+import { Wordmark } from "./wordmark";
 
 type NavLink = {
   title: string;
@@ -17,17 +16,27 @@ const navigation = [
     links: [
       { title: "About", href: "/about" },
       { title: "Blog", href: "/blog" },
-      { title: "Changelog", href: "/changelog" },
       { title: "Careers", href: "/careers" },
-      { title: "Docs", href: "/docs", external: true },
-      { title: "Glossary", href: "/glossary" },
+      {
+        title: "Analytics",
+        href: "https://us.posthog.com/shared/HwZNjaKOLtgtpj6djuSo3fgOqrQm0Q?whitelabel",
+        external: true,
+      },
+      {
+        title: "Docs",
+        href: "/docs",
+        external: true,
+      },
+      {
+        title: "Glossary", 
+        href: "/glossary",
+      },
     ],
   },
   {
     title: "Connect",
     links: [
       { title: "X (Twitter)", href: "https://x.com/unkeydev", external: true },
-      { title: "OSS Friends", href: "/oss-friends" },
       {
         title: "Book a Call",
         href: "https://cal.com/team/unkey/user-interview?utm_source=banner&utm_campaign=oss",
@@ -50,7 +59,7 @@ const Column: React.FC<{ title: string; links: Array<NavLink>; className?: strin
   className,
 }) => {
   return (
-    <div className={twMerge("flex flex-col gap-8 text-left", className)}>
+    <div className={cn("flex flex-col gap-8 text-left", className)}>
       <span className="w-full text-sm font-medium tracking-wider text-white font-display">
         {title}
       </span>
@@ -87,7 +96,7 @@ export function Footer() {
         </div>
 
         {navigation.map(({ title, links }) => (
-          <Column key={title} title={title} links={links} className="col-span-1 " />
+          <Column key={title} title={title} links={links} className="col-span-1" />
         ))}
       </footer>
       <div className="container mt-8 h-[100px]">
