@@ -6,6 +6,7 @@ const securityHeaders = [
     value: "SAMEORIGIN",
   },
 ];
+
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
@@ -27,15 +28,7 @@ const nextConfig = {
     return [
       {
         source: "/changelog/:slug",
-        destination: "/changelog#:slug", // Matched parameters can be used in the destination
-      },
-      {
-        source: "/docs",
-        destination: "https://unkey.mintlify.dev/docs",
-      },
-      {
-        source: "/docs/:match*",
-        destination: "https://unkey.mintlify.dev/docs/:match*",
+        destination: "/changelog#:slug",
       },
       {
         source: "/terms",
